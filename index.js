@@ -8,6 +8,6 @@ app.get("/",(req,res)=>{
     res.sendFile(path.join(__dirname,"views/index.html"));
 })
 
-app.listen("9001",(req,res)=>{
+app.listen("9000",(req,res)=>{
     console.log("Server started");
 })
