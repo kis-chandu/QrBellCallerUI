@@ -29,6 +29,18 @@ peer.on("open",(id)=>{
 
 peer.on("open",(id)=>{
 console.log("peer.on(OPEN) called");
+
+/*
+console.log("####"+window.location.search);
+if(window.location.search){
+
+  const urlParams = new URLSearchParams(window.location.search);
+  console.log("#### "+urlParams);
+  $("#peer_id").html(urlParams.get('firstname'));
+}
+*/
+
+
     $("#my_id").html(id);
     let scope = {audio:true, video:true};
     navigator.mediaDevices.getUserMedia(scope).then((stream)=>{
@@ -73,7 +85,12 @@ function call(){
 
 function call(){
 console.log("call() called");
-    let pnumber = $("#peer_id").val();
+
+  const urlParams = new URLSearchParams(window.location.search);
+  console.log("#### "+urlParams);
+  let pnumber = urlParams.get('ownerId');
+
+    //let pnumber = $("#peer_id").val();
     if(pnumber==''){
         alert("Please fill peer number");
         return;
